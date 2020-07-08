@@ -3,6 +3,7 @@ package org.example;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 
 import java.util.concurrent.TimeUnit;
 
@@ -23,15 +24,10 @@ public class AutoDigital {
         System.out.println(pagetext);
         String text = driver.findElement(By.xpath("//span[@id=\"YourEmailAddress-error\"]")).getText();
         System.out.println(text);
-
-
-
-
-
-
-
-
-
+        String expectedText = "Enter friends email";
+        String actualText = driver.findElement(By.className("//span[@id=\"YourEmailAddress-error\"]")).getText();
+        Assert.assertEquals(actualText,expectedText);
+        System.out.println("pass");
     }
 
 }
